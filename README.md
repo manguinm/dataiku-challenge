@@ -99,9 +99,9 @@ Overall, with such classifiers, we achieve a good recall for the 50k+ category !
 
 Because of time constraints, I had to end this work at this point, but there are definitely more steps to explore to tackle this classification problem. From most important to least important in my opinion, here are the further techniques I would like to look at : 
 
-- use oversampling techniques to rebalance the training set and help classifiers learn more the 50k+ category (the [imbalanced_learn](https://github.com/scikit-learn-contrib/imbalanced-learn) module in Python seems a good tool)
+- use **oversampling techniques** to rebalance the training set and help classifiers learn more the 50k+ category patterns (the [imbalanced_learn](https://github.com/scikit-learn-contrib/imbalanced-learn) module in Python seems a good tool)
 - Refining features, combining them ('handcrafted' ratios, Principal component analysis...)
 - Instead of using a classification approach, use an anomaly detection one ?
 
 
-#### 'Automated' feature engineering
+
