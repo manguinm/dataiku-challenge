@@ -42,11 +42,17 @@ It makes sense to define an age threshold under which we can reasonably assume p
 #### Discarding useless variables
 
 First, I removed the **instance-weight** variable as the purpose of this variable is to readjust the sample to be representative of the whole population, and should not be used for classification. 
+I ralso removed variables that provided redundant info, such as detailed_industry_code.
 
-Trees methods in scikit-learn provide a useful `feature_importances` metrics for getting information on the relative importance of each feature, based on how 'high' a feature is used to split at a node. By using an `ExtraTree Classifier` (I one-hot encoded the categorical variables before), I discarded the following variables, which were the least important in the tree:
+Trees methods in scikit-learn provide a useful `feature_importances` metrics for getting information on the relative importance of each feature, based on how 'high' a feature is used to split at a node. By using an `ExtraTree Classifier` (I one-hot encoded the categorical variables before), I discarded the least important variables in the tree. To sum up, I dropped all the following variables:
+
+- detailed industry recode and detailed occupation recode
+- migration-related variables
+- year (assuming year does not play a role here, as it is only on a 2-year period)
 - country of birth father and mother
 - detailed household and family stat
 - state of previous residence
+
 
 This `ExtraTree` also provided me with useful insights on the most important features, which are mainly age, education level and work-oriented variables. Interestingly, financial variables like capital gains, dividends and capital losses play a huge role. In further investigation, one could merge these three into a financial_health indicator for instance.
 
