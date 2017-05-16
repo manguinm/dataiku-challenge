@@ -81,12 +81,12 @@ Results on the adults dataset
 
 | Classifier | Logistic Regression | Decision Tree | Random Forest
 --- | --- | --- | --- 
-| - 50k precision | 0.98 |  0.98 | **nicely**
-| - 50k recall | 0.83 | 0.80 | **nicely**
-| < 50k F-1 score |0.90 | 0.90 | **nicely**
-| 50k +precision | 0.31 | 0.28  | **nicely**
-| 50k + recall | 0.86 | 0.85 | **nicely**
-| 50k + F-1 score | 0.46 | 0.42 | **nicely**
+| - 50k precision | 0.98 |  0.98 | 0.95
+| - 50k recall | 0.83 | 0.80 | 0.98
+| < 50k F-1 score |0.90 | 0.90 | 0.97
+| 50k +precision | 0.31 | 0.28  | 0.69
+| 50k + recall | 0.86 | 0.85 | 0.39
+| 50k + F-1 score | 0.46 | 0.42 | 0.50
 
 
 
@@ -101,7 +101,7 @@ Because of time constraints, I had to end this work at this point, but there are
 
 - use **oversampling techniques** to rebalance the training set and help classifiers learn more the 50k+ category patterns (the [imbalanced_learn](https://github.com/scikit-learn-contrib/imbalanced-learn) module in Python seems a good tool)
 - Refining features, combining them ('handcrafted' ratios, Principal component analysis...)
-- Instead of using a classification approach, use an anomaly detection one ?
+- Instead of using a classification approach, use an anomaly detection one (cluster analysis-based for instance)
 
 
 
