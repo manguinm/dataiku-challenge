@@ -84,7 +84,7 @@ Results on the adults dataset
 | - 50k precision | 0.98 |  0.98 | 0.95
 | - 50k recall | 0.83 | 0.80 | 0.98
 | < 50k F-1 score |0.90 | 0.90 | 0.97
-| 50k +precision | 0.31 | 0.28  | 0.69
+| 50k +precision | 0.31 | 0.28  | 0.70
 | 50k + recall | 0.86 | 0.85 | 0.39
 | 50k + F-1 score | 0.46 | 0.42 | 0.50
 
@@ -92,7 +92,9 @@ Results on the adults dataset
 
 The classification methods have a nice class_weight parameter that I defined as `balanced` in order to address the imbalanced dataset problem. 
 
-Overall, with such classifiers, we achieve a good recall for the 50k+ category ! But the precision is  bad. Which means we manage to flag most of the 50k+ people (few false negatives), but we also flag wrongly many people in the 50k+ category (many false positives). 
+Overall, with the Decision Tree and the Logistic Regression, we achieve a good recall for the 50k+ category ! But the precision is  bad. Which means we manage to flag most of the 50k+ people (few false negatives), but we also flag wrongly many people in the 50k+ category (many false positives). 
+The Random Forest yields the best resuls (the best F1-score for the 50k+ category), even though it is computationnaly costly in this high-dimensional features matrix. Interestingly, with this RF, we achieve a better precision than a recall.
+
 
 
 ### Further steps
