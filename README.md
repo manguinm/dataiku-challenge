@@ -67,8 +67,21 @@ I tried the following classification methods:
 - Decision Tree (I plotted a simple decision tree with a small depth for a nice viz)
 - Random Forest
 
-### Key metrics: 
+For each classifier, I got the training performance by cross-validating on a stratified KFold = 5 folds, optimizing on the F-1 score. 
+If hyperparameter tuning needed, I would also use cross-validation with stratified folds, optimizing on the F-1 score.
+I carefully printed the `classification report` on the test set to get details on performance metrics.
+
+#### Key metrics: 
 The metrics we are most interested in, in this case of unbalanced dataset, are precision and recall for the 50k+ category : we want to make sure we flag accurately all people in this category and we do not want to falsely flag someone as in the 50k+ category while he is not.  
+
+#### Summary of the results
+
+| Classifier | Logistic Regression | Decision Tree | Random Forest
+--- | --- | ---
+| < 50k precision | *Still* | `renders` | **nicely**
+| < 50k recall | *Still* | `renders` | **nicely**
+| > 50k precision | *Still* | `renders` | **nicely**
+| < 50k recall | *Still* | `renders` | **nicely**
 
 
 ### Further steps
