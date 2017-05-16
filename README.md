@@ -83,9 +83,13 @@ The metrics we are most interested in, in this case of unbalanced dataset, are p
 | > 50k precision | *Still* | `renders` | **nicely**
 | < 50k recall | *Still* | `renders` | **nicely**
 
+The trees methods have a nice class_weight parameter that I defined as `balanced` in order to address the imbalanced dataset problem. 
+
 
 ### Further steps
 
 - Refining features, combining them ('handcrafted' ratios, Principal component analysis...)
+- Instead of using a classification approach, use an anomaly detection one ?
+- use better oversampling techniques (the [imbalanced_learn](https://github.com/scikit-learn-contrib/imbalanced-learn) module in Python seems a good tool)
 
 #### 'Automated' feature engineering
