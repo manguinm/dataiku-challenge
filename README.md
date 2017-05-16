@@ -80,7 +80,7 @@ Results on the adults dataset
 * N.B : we achieve 100% accuracy in flagging people under < 15 in the < 50k category.*
 
 | Classifier | Logistic Regression | Decision Tree | Random Forest
---- | --- | ---
+--- | --- | --- | --- 
 | - 50k precision | 0.98 |  0.98 | **nicely**
 | - 50k recall | 0.83 | 0.80 | **nicely**
 | < 50k F-1 score |0.90 | 0.90 | **nicely**
