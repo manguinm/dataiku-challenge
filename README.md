@@ -76,20 +76,32 @@ The metrics we are most interested in, in this case of unbalanced dataset, are p
 
 #### Summary of the results
 
+Results on the adults dataset
+* N.B : we achieve 100% accuracy in flagging people under < 15 in the < 50k category.*
+
 | Classifier | Logistic Regression | Decision Tree | Random Forest
 --- | --- | ---
-| < 50k precision | *Still* | `renders` | **nicely**
-| < 50k recall | *Still* | `renders` | **nicely**
-| > 50k precision | *Still* | `renders` | **nicely**
-| < 50k recall | *Still* | `renders` | **nicely**
+| - 50k precision | 0.98 |  0.98 | **nicely**
+| - 50k recall | 0.83 | 0.80 | **nicely**
+| < 50k F-1 score |0.90 | 0.90 | **nicely**
+| 50k +precision | 0.31 | 0.28  | **nicely**
+| 50k + recall | 0.86 | 0.85 | **nicely**
+| 50k + F-1 score | 0.46 | 0.42 | **nicely**
 
-The trees methods have a nice class_weight parameter that I defined as `balanced` in order to address the imbalanced dataset problem. 
+
+
+The classification methods have a nice class_weight parameter that I defined as `balanced` in order to address the imbalanced dataset problem. 
+
+Overall, with such classifiers, we achieve a good recall for the 50k+ category ! But the precision is  bad. Which means we manage to flag most of the 50k+ people (few false negatives), but we also flag wrongly many people in the 50k+ category (many false positives). 
 
 
 ### Further steps
 
+Because of time constraints, I had to end this work at this point, but there are definitely more steps to explore to tackle this classification problem. From most important to least important in my opinion, here are the further techniques I would like to look at : 
+
+- use oversampling techniques to rebalance the training set and help classifiers learn more the 50k+ category (the [imbalanced_learn](https://github.com/scikit-learn-contrib/imbalanced-learn) module in Python seems a good tool)
 - Refining features, combining them ('handcrafted' ratios, Principal component analysis...)
 - Instead of using a classification approach, use an anomaly detection one ?
-- use better oversampling techniques (the [imbalanced_learn](https://github.com/scikit-learn-contrib/imbalanced-learn) module in Python seems a good tool)
+
 
 #### 'Automated' feature engineering
