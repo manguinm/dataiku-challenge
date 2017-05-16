@@ -29,7 +29,7 @@ To get a better understanding of the dataset and the repartition of the variable
 A first observation is that the dataset is very imbalanced towards people who earn less than 50k/year (93% of the dataset !).  It is necessary to take this into account in machine learning models we build, particularly when tuning the parameters (e.g. `StratifiedKFold` and a good choice of performance metrics broken down by category). 
 
 #### Choice : working on an *adult* subset of the dataset
-It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as $ age_{min} = 15 years old $  
+It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as age_min = 15 years old and put this young subset aside of the study. It helps rebalance a bit the dataset : in the adult one, there   
 
 #### Distinct profiles for people with low income / people with higher income
 - Age : Average age for people with higher income is 46, whereas it is 33 years old for people with lower income.
@@ -41,12 +41,31 @@ It makes sense to define an age threshold under which we can reasonably assume p
 
 #### Discarding useless variables
 
+First, I removed the **instance-weight** variable as the purpose of this variable is to readjust the sample to be representative of the whole population, and should not be used for classification. 
 
+Trees methods in scikit-learn provide a useful `feature_importances` metrics for getting information on the relative importance of each feature, based on how 'high' a feature is used to split at a node. By using an `ExtraTree Classifier` (I one-hot encoded the categorical variables before), I discarded the following variables, which were the least important in the tree:
+- country of birth father and mother
+- detailed household and family stat
+- state of previous residence
 
+This `ExtraTree` also provided me with useful insights on the most important features, which are mainly age, education level and work-oriented variables. Interestingly, financial variables like capital gains, dividends and capital losses play a huge role. In further investigation, one could merge these three into a financial_health indicator for instance.
 
+I also simplified the **education** variable into a simpler variable with fewer categories. Which led me to take the following reduced list of features:
+LIST
+
+I could have shortened the list a lot more. But I did not want to lose any potential information at this stage. 
 
 ### Classification 
+I tried the following classification methods:
+- Logistic Regression 
+- Decision Tree (I plotted a simple decision tree with a small depth for a nice viz)
+- Random Forest
+
+The metrics we are most interested in, in this case of unbalanced dataset 
+
 
 ### Further steps
+
+- Refining features, combining them ('handcrafted' ratios, Principal component analysis...)
 
 #### 'Automated' feature engineering
