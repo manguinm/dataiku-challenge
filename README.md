@@ -68,7 +68,7 @@ I tried the following classification methods:
 - Random Forest
 
 ### Key metrics: 
-The metrics we are most interested in, in this case of unbalanced dataset, are precision and recall for the 50k+ category, and particularly the recall: we want to make sure we flag accurately all people in this category.  
+The metrics we are most interested in, in this case of unbalanced dataset, are precision and recall for the 50k+ category : we want to make sure we flag accurately all people in this category and we do not want to falsely flag someone as in the 50k+ category while he is not.  
 
 
 ### Further steps
