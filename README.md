@@ -22,14 +22,20 @@ Furthermore, the `migration_code_something` variables have a lot of unknown valu
 
 ### Exploratory Data Analysis : key statistics
 
+To get a better understanding of the dataset and the repartition of the variables, I made a series of univariate and bivariate plots, a correlation matrix among continuous variables, and some co-occurence matrices for categorical labels. The main learnings I got are described below:
+
 #### Very imbalanced dataset 
 
-A first observation is that the dataset is very imbalanced towards people who earn less than 50k/year (93% of the dataset !).  It is necessary to take this into account in machine learning models we build, particularly when tuning the parameters (`StratifiedKFold`). 
+A first observation is that the dataset is very imbalanced towards people who earn less than 50k/year (93% of the dataset !).  It is necessary to take this into account in machine learning models we build, particularly when tuning the parameters (e.g. `StratifiedKFold` and a good choice of performance metrics broken down by category). 
 
-#### distinct profiles for people with low income / people with higher income
-Average age for people with higher income is 46, whereas it is 33 years old for people with lower income.
-The top category for `education` is Children among the lower -50k category, and Bachelor degree among the +50k one. This latter category also has a majority of `married` people, while the other is mainly formed of `never married` people. The 50k+ category is mostly male while the 50k- is mostly female, and both are in majority white.
-The +50k category works in majority in `Manufacturing - durable goods`, with the `Executive admin and managerial` status. 
+#### Choice : working on an *adult* subset of the dataset
+It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as $ age_{min} = 15 years old $  
+
+#### Distinct profiles for people with low income / people with higher income
+- Age : Average age for people with higher income is 46, whereas it is 33 years old for people with lower income.
+- Education : The top category for `education` is Children among the lower -50k category, and Bachelor degree among the +50k one. This latter category also has a majority of `married` people, while the other is mainly formed of `never married` people. The 50k+ category is mostly male while the 50k- is mostly female, and both are in majority white.
+- Working class : The +50k category works in majority in `Manufacturing - durable goods`, with the `Executive admin and managerial` status. The -50k has a majority of people who have never worked.
+
 
 ### Feature Engineering : selecting the most relevant features
 
