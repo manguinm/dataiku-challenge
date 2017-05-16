@@ -29,7 +29,7 @@ To get a better understanding of the dataset and the repartition of the variable
 A first observation is that the dataset is very imbalanced towards people who earn less than 50k/year (93% of the dataset !).  It is necessary to take this into account in machine learning models we build, particularly when tuning the parameters (e.g. `StratifiedKFold` and a good choice of performance metrics broken down by category). 
 
 #### Choice : working on an *adult* subset of the dataset
-It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as age_min = 15 years old and put this young subset aside of the study. It helps rebalance a bit the dataset : in the adult one, there   
+It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as age_min = 15 years old and put this young subset aside of the study. It helps rebalance a tiny bit the dataset (92% of the adult dataset are under 50k, while 94% in the original dataset). 
 
 #### Distinct profiles for people with low income / people with higher income
 - Age : Average age for people with higher income is 46, whereas it is 33 years old for people with lower income.
@@ -61,7 +61,8 @@ I tried the following classification methods:
 - Decision Tree (I plotted a simple decision tree with a small depth for a nice viz)
 - Random Forest
 
-The metrics we are most interested in, in this case of unbalanced dataset 
+### Key metrics: 
+The metrics we are most interested in, in this case of unbalanced dataset, are precision and recall for the 50k+ category, and particularly the recall: we want to make sure we flag accurately all people in this category.  
 
 
 ### Further steps
