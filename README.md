@@ -56,8 +56,18 @@ Trees methods in scikit-learn provide a useful `feature_importances` metrics for
 
 This `ExtraTree` also provided me with useful insights on the most important features, which are mainly age, education level and work-oriented variables. Interestingly, financial variables like capital gains, dividends and capital losses play a huge role. In further investigation, one could merge these three into a financial_health indicator for instance.
 
-I also simplified the **education** variable into a simpler variable with fewer categories. Which led me to take the following reduced list of features:
-LIST
+I also simplified the **education** variable into a simpler variable with fewer categories. Which led me to take the following reduced list of features: age, class_of_worker, wage_per_hour,
+       enroll_in_edu_inst_last_wk, marital_stat, major_industry_code,
+       major_occupation_code, race, hispanic_origin, sex,
+       member_of_a_labor_union, reason_for_unemployment,
+       full_or_part_time_employment_stat, capital_gains,
+       capital_losses, dividends_from_stocks, tax_filer_stat,
+       region_of_previous_residence, live_in_this_house_1_year_ago,
+       migration_prev_res_in_sunbelt, num_persons_worked_for_employer,
+       family_members_under_18, country_of_birth_father,
+       country_of_birth_mother, country_of_birth_self, citizenship,
+       own_business_or_self_employed, veterans_benefits,
+       weeks_worked_in_year, year, target, main_education.
 
 I could have shortened the list a lot more. But I did not want to lose any potential information at this stage. 
 
@@ -67,7 +77,7 @@ I tried the following classification methods:
 - Decision Tree (I plotted a simple decision tree with a small depth for a nice viz)
 - Random Forest
 
-For each classifier, I got the training performance by cross-validating on a stratified KFold = 5 folds, optimizing on the F-1 score. 
+For each classifier, I got the training performance by cross-validating on a stratified KFold = 5 folds, optimizing on the F-1 score. This F1 score metrics is more suited to classification problems than just accuracy taken alone, as it is the harmonic mean of precision and recall. Typically if our classifier has very high precision but poor recall, the F1 score will reflect this, while the accuracy will not.  
 If hyperparameter tuning needed, I would also use cross-validation with stratified folds, optimizing on the F-1 score.
 I carefully printed the `classification report` on the test set to get details on performance metrics.
 
@@ -76,8 +86,11 @@ The metrics we are most interested in, in this case of unbalanced dataset, are p
 
 #### Summary of the results
 
-Results on the adults dataset
-* N.B : we achieve 100% accuracy in flagging people under < 15 in the < 50k category.*
+- we achieve 100% accuracy in flagging people under < 15 in the < 50k category.
+
+- Results on the adults dataset
+
+
 
 | Classifier | Logistic Regression | Decision Tree | Random Forest
 --- | --- | --- | --- 
