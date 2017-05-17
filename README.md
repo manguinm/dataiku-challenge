@@ -26,10 +26,10 @@ To get a better understanding of the dataset and the repartition of the variable
 
 #### Very imbalanced dataset 
 
-A first observation is that the dataset is very imbalanced towards people who earn less than 50k/year (93% of the dataset !).  It is necessary to take this into account in machine learning models we build, particularly when tuning the parameters (e.g. `StratifiedKFold` and a good choice of performance metrics broken down by category). 
+A first observation is that the dataset is very imbalanced towards people who earn less than 50k/year (94% of the dataset).  It is necessary to take this into account in machine learning models we build, particularly when tuning the parameters (e.g. `StratifiedKFold` and a good choice of performance metrics broken down by category). 
 
 #### Choice : working on an *adult* subset of the dataset
-It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as age_min = 15 years old and put this young subset aside of the study. It helps rebalance a tiny bit the dataset (92% of the adult dataset are under 50k, while 94% in the original dataset). 
+It makes sense to define an age threshold under which we can reasonably assume people are too young to earn 50k+ per year. From what we learned from the training set, we define this threshold as age_min = 15 years old and put this young subset aside of the study. It helps rebalance a tiny bit the dataset, as these young people account for 25% of the whole training dataset. (92% of the adult dataset are under 50k, while 94% in the original dataset). 
 
 #### Distinct profiles for people with low income / people with higher income
 - Age : Average age for people with higher income is 46, whereas it is 33 years old for people with lower income.
